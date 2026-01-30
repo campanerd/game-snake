@@ -1,7 +1,22 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 
-ctx.fillStyle = "purple"
-ctx.fillRect(300, 100, 50, 100)
+const size = 30
+
+const snake = [
+    { x:200, y: 200},
+    { x:230, y: 200},
+    { x:260, y: 200}
+]
 
 
+const drawSnake = () => {
+    ctx.fillStyle = "purple"
+    
+    snake.forEach((position) =>{
+        ctx.fillRect(position.x, position.y, size, size)
+    })
+
+}
+
+drawSnake()
