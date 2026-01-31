@@ -8,7 +8,8 @@ const snake = [
     { x:230, y: 200}
 ]
 
-let direction = "rigth" 
+let direction, LoopId
+
 
 const drawSnake = () => {
     ctx.fillStyle = "#9400D3"
@@ -49,12 +50,13 @@ const moveSnake = () => {
 }
 
 const gameLoop = () => {
+    clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600)
 
     moveSnake()
     drawSnake()
 
-    setTimeout( () => {
+    LoopId = setTimeout( () => {
         gameLoop()
         }, 300)
 }
