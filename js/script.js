@@ -5,9 +5,24 @@ const size = 30
 
 const snake = [{x: 270, y:240}]
 
+const food = {
+    x: 90,
+    y: 90,
+    color: "yellow"
+}
 
 let direction, LoopId
 
+const drawFood = () => {
+
+    const {x, y, color} = food
+
+    ctx.shadowColor = color
+    ctx.shadowBlur = 10
+    ctx.fillStyle = food.color
+    ctx.fillRect(x, y, size, size)
+    ctx.shadowBlur = 0
+}
 
 const drawSnake = () => {
     ctx.fillStyle = "#9400D3"
@@ -70,6 +85,7 @@ const gameLoop = () => {
     clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600)
     drawGrid()
+    drawFood()
     moveSnake()
     drawSnake()
 
@@ -77,6 +93,7 @@ const gameLoop = () => {
         gameLoop()
         }, 300)
 }
+
 gameLoop()
 
 document.addEventListener("keydown", ({key}) => {
