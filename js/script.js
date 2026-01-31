@@ -8,7 +8,7 @@ const snake = [
     { x:230, y: 200}
 ]
 
-let direction = "right"
+let direction = "rigth" 
 
 const drawSnake = () => {
     ctx.fillStyle = "#9400D3"
@@ -26,16 +26,36 @@ const drawSnake = () => {
 }
 
 const moveSnake = () => {
+    if (!direction) return
     const head = snake.at(-1)
 
-    snake.shift()
-
-    if (direction == "right"){
+    if (direction == "rigth"){
         snake.push({ x: head.x + size, y: head.y})
     }
+
+    if (direction == "left"){
+        snake.push({ x: head.x - size, y: head.y})
+    }
+
+    if (direction == "down"){
+        snake.push({ x: head.x, y: head.y + size})
+    }
+
+    if (direction == "up"){
+        snake.push({ x: head.x, y: head.y - size})
+    }
+
+    snake.shift()
 }
 
-setInterval(() => {
-moveSnake()
-drawSnake()
-}, 300)
+const gameLoop = () => {
+    ctx.clearRect(0, 0, 600, 600)
+
+    moveSnake()
+    drawSnake()
+
+    setTimeout( () => {
+        gameLoop()
+        }, 300)
+}
+gameLoop()
