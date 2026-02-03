@@ -5,9 +5,13 @@ const size = 30
 
 const snake = [{x: 270, y:240}]
 
+const randomNumber = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min)
+} 
+
 const food = {
-    x: 90,
-    y: 90,
+    x: randomNumber(0, 570),
+    y: randomNumber(0, 570),
     color: "yellow"
 }
 
