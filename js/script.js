@@ -15,8 +15,8 @@ const randomPosition = () => {
 }
 
 const food = {
-    x: randomPosition(0, 570),
-    y: randomPosition(0, 570),
+    x: randomPosition(),
+    y: randomPosition(),
     color: "yellow"
 }
 
