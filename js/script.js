@@ -14,10 +14,18 @@ const randomPosition = () => {
     return Math.round(number / 30) * 30
 }
 
+const randomColor = () => {
+    const red = randomNumber(0,255)
+    const green = randomNumber(0, 255)
+    const blue = randomNumber(0, 255)
+
+    return `rgb(${red}, ${green}, ${blue})`
+}
+
 const food = {
     x: randomPosition(),
     y: randomPosition(),
-    color: "yellow"
+    color: randomColor()
 }
 
 let direction, LoopId
