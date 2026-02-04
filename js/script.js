@@ -58,7 +58,8 @@ const drawSnake = () => {
 
 const moveSnake = () => {
     if (!direction) return
-    const head = snake.at(-1)
+
+    const head = snake[snake.length - 1]
 
     if (direction == "right"){
         snake.push({ x: head.x + size, y: head.y})
@@ -98,6 +99,16 @@ const drawGrid = () => {
     }    
 }
 
+const chackEat = () => {
+    const head = snake[snake.length - 1]
+
+    if (head.x == food.x && head.y == food.y){
+        snake.push(head)
+
+    }
+
+}
+
 const gameLoop = () => {
     clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600)
@@ -105,6 +116,7 @@ const gameLoop = () => {
     drawFood()
     moveSnake()
     drawSnake()
+    chackEat()
 
     LoopId = setTimeout( () => {
         gameLoop()
