@@ -122,6 +122,14 @@ const chackEat = () => {
 
 }
 
+const checkColision = () => {
+    const head =snake[snake.length - 1]
+
+    if (head.x < 0 || head.x > 570 || head.y < 0  || head.y > 570){
+        alert("você perdeu!")
+    }
+}
+
 const gameLoop = () => {
     clearInterval(LoopId)
     ctx.clearRect(0, 0, 600, 600)
@@ -130,6 +138,7 @@ const gameLoop = () => {
     moveSnake()
     drawSnake()
     chackEat()
+    checkColision()
 
     LoopId = setTimeout( () => {
         gameLoop()
