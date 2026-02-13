@@ -133,8 +133,12 @@ const checkCollision = () => {
     })
 
     if (wallCollision || selfCollision ) {
-        alert("você perdeu!")
+        gameOver()
     }
+}
+
+const gameOver = () => {
+    direction = undefined
 }
 
 const gameLoop = () => {
