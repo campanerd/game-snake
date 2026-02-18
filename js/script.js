@@ -106,6 +106,18 @@ const moveSnake = () => {
     snake.shift()
 }
 
+const resetGame = () => {
+    score.innerText = "00"
+    menu.style.display = "none"
+    canvas.style.filter = "none"
+
+    snake = [{ x: 270, y: 240 }]
+    direction = undefined
+
+    generateFood()
+}
+
+
 const drawGrid = () => {
     ctx.lineWidth = 1
     ctx.strokeStyle = "#191919"
@@ -196,13 +208,4 @@ document.addEventListener("keydown", ({key}) => {
     }
 })
 
-buttonPlay.addEventListener("click", () => {
-    score.innerText = "00"
-    menu.style.display = "none"
-    canvas.style.filter = "none"
-
-    snake = [{x: 270, y:240}]
-    direction = undefined
-
-    generateFood()
-})
+buttonPlay.addEventListener("click", (resetGame))
