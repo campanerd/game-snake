@@ -194,7 +194,22 @@ buttonPlay.addEventListener("click", () => {
     score.innerText = "00"
     menu.style.display = "none"
     canvas.style.filter = "none"
-    drawFood = "none"
+
+    snake = [{x: 270, y:240}]
+
+    let x = randomPosition()
+    let y = randomPosition()
+
+    while (snake.find(position => position.x == x && position.y == y)) {
+        x = randomPosition()
+        y = randomPosition()
+    }
+    
+    food.x = x
+    food.y = y
+    food.color = randomColor()
+
+    direction = undefined
 
     snake = [{x: 270, y:240}]
 })
