@@ -110,7 +110,7 @@ const drawGrid = () => {
     }    
 }
 
-const chackEat = () => {
+const checkEat = () => {
     const head = snake[snake.length - 1]
 
     if (head.x == food.x && head.y == food.y){
@@ -162,7 +162,7 @@ const gameLoop = () => {
     drawFood()
     moveSnake()
     drawSnake()
-    chackEat()
+    checkEat()
     checkCollision()
 
     LoopId = setTimeout( () => {
@@ -194,6 +194,7 @@ buttonPlay.addEventListener("click", () => {
     score.innerText = "00"
     menu.style.display = "none"
     canvas.style.filter = "none"
+    drawFood = "none"
 
     snake = [{x: 270, y:240}]
 })
