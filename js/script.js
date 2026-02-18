@@ -208,4 +208,14 @@ document.addEventListener("keydown", ({key}) => {
     }
 })
 
+document.addEventListener("keydown", (event) => {
+    if (
+        (event.key === "Enter" || event.key === " ") &&
+        menu.style.display === "flex"
+    ) {
+        resetGame()
+    }
+})
+
+
 buttonPlay.addEventListener("click", (resetGame))
