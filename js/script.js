@@ -13,8 +13,11 @@ const size = 30
 const snake = [
     {x: 270, y:240},
     {x: 300, y:240}
-
 ]
+
+const incrementScore = () => {
+    score.innerText = +score.innerText + 10
+}
 
 const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
@@ -114,6 +117,7 @@ const chackEat = () => {
     const head = snake[snake.length - 1]
 
     if (head.x == food.x && head.y == food.y){
+        incrementScore()
         snake.push(head)
         audio.play()
 
