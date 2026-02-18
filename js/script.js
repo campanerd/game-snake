@@ -152,6 +152,9 @@ const checkCollision = () => {
 
 const gameOver = () => {
     direction = undefined
+
+    menu.style.display = "flex"
+    finalScore.innerText - score
 }
 
 const gameLoop = () => {
