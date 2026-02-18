@@ -33,6 +33,21 @@ const randomColor = () => {
     return `rgb(${red}, ${green}, ${blue})`
 }
 
+const generateFood = () => {
+    let x = randomPosition()
+    let y = randomPosition()
+
+    while (snake.find(position => position.x == x && position.y == y)) {
+        x = randomPosition()
+        y = randomPosition()
+    }
+
+    food.x = x
+    food.y = y
+    food.color = randomColor()
+}
+
+
 const food = {
     x: randomPosition(),
     y: randomPosition(),
@@ -118,16 +133,7 @@ const checkEat = () => {
         snake.push(head)
         audio.play()
 
-        let x = randomPosition()
-        let y = randomPosition()
-
-        while (snake.find((position) => position.x == x && position.y == y )) {
-            x = randomPosition()
-            y = randomPosition()
-        }
-        food. x = x
-        food.y = y
-        food.color = randomColor()
+        generateFood()
     }
 
 }
@@ -196,20 +202,7 @@ buttonPlay.addEventListener("click", () => {
     canvas.style.filter = "none"
 
     snake = [{x: 270, y:240}]
-
-    let x = randomPosition()
-    let y = randomPosition()
-
-    while (snake.find(position => position.x == x && position.y == y)) {
-        x = randomPosition()
-        y = randomPosition()
-    }
-    
-    food.x = x
-    food.y = y
-    food.color = randomColor()
-
     direction = undefined
 
-    snake = [{x: 270, y:240}]
+    generateFood()
 })
